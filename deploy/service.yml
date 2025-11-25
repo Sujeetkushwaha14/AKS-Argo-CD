@@ -1,14 +1,13 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   namespace: test
-#   name: nginx-service
-# spec:
-#   selector:
-#     app: nginx
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       targetPort: 80
-  
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: test   # namespace metadata ke andar hona chahiye
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80        # Service port
+      targetPort: 80  # Pod port
+  type: ClusterIP     # optional, default is ClusterIP
