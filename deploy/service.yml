@@ -2,13 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
-  namespace: test   # namespace metadata ke andar hona chahiye
+  namespace: test
 spec:
   selector:
     app: nginx
   ports:
     - protocol: TCP
-      port: 80        # Service port
-      targetPort: 80  # Pod port
-  type: LoadBalancer     # optional, default is ClusterIP
-
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
