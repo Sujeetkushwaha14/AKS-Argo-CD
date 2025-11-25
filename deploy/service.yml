@@ -10,4 +10,5 @@ spec:
     - protocol: TCP
       port: 80        # Service port
       targetPort: 80  # Pod port
-  type: ClusterIP     # optional, default is ClusterIP
+  type: LoadBalancer     # optional, default is ClusterIP
+
