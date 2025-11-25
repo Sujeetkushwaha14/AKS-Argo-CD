@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: nginx-ingress        # typo fix: ngnix → nginx
   namespace: test
-  name: ngnix-ngress
 spec:
   ingressClassName: azure-application-gateway
   rules:
   - host: test.sujeetkushwaha.shop
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: /
+        pathType: Prefix
         backend:
           service:
-            name: nginx
-            port: 
+            name: nginx-service   # make sure service name matches
+            port:
               number: 80
