@@ -1,10 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress        # typo fix: ngnix → nginx
+  name: test-ingress
   namespace: test
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
-  ingressClassName: azure-application-gateway
+  ingressClassName: nginx
   rules:
   - host: test.sujeetkushwaha.shop
     http:
@@ -13,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-service   # make sure service name matches
+            name: test-server
             port:
-              number: 80
+              number: 443
