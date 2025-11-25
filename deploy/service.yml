@@ -1,14 +1,11 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: nginx-service
-#   namespace: test
-# spec:
-#   selector:
-#     app: nginx
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       targetPort: 80
-#   type: LoadBalancer
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-server
+  namespace: test
+spec:
+  ports:
+    - protocol: TCP
+      port: 80        # HTTP port
+      targetPort: 80  # pod container port
+  type: ClusterIP
