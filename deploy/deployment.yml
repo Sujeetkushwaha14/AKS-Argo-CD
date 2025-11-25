@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: test
   name: nginx
 spec:
   replicas: 1
@@ -17,3 +18,4 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+
